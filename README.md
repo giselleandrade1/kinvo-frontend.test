@@ -1,99 +1,91 @@
 # Kinvo — Desafio Front-end (implementação)
 
-Este repositório contém uma implementação simples do desafio Kinvo usando React + Vite e `styled-components`.
+Este repositório contém uma implementação completa do Desafio Kinvo Front-end (nível Pleno), construída com React + Vite + Styled Components.
 
-Funcionalidades implementadas:
+Principais funcionalidades entregues
 
-- Busca / filtragem de produtos na seção "Minhas Rendas Fixas" (campo de texto)
-- Ordenação por nome, data de vencimento e rentabilidade
-- Paginação (5 produtos por página)
-- Consumo de dados reais da API fornecida
+- Busca / Filtragem por texto na seção "Minhas Rendas Fixas"
+- Ordenação por nome e rentabilidade via seletor
+- Paginação com 5 itens por página
+- Consumo de dados reais da API: `https://6270328d6a36d4d62c16327c.mockapi.io/getFixedIncomeClassData`
+- Testes unitários (Vitest + Testing Library) cobrindo fetch, busca e paginação
+- CI básico com GitHub Actions executando os testes
 
-Pré-requisitos:
+Tecnologias
 
-- Node.js 18+ (ou 16+)
+- React 18 (componentes funcionais + hooks)
+- Styled Components para estilos isolados
+- Vite para dev server e build
+- Vitest + Testing Library para testes
 
-Como rodar:
+Arquitetura e organização
 
-1. Instale dependências:
+- `src/App.jsx` — ponto de entrada da UI e regras de apresentação
+- `src/index.css` — estilos globais mínimos
+- `src/__tests__/App.test.jsx` — testes automatizados
+- `public` / `index.html` — ponto de entrada HTML servida pelo Vite
+
+Decisões técnicas e justificativas
+
+- Usei Vite para velocidade no desenvolvimento e compatibilidade com ESM.
+- Optei por `styled-components` para atender requisito do desafio e manter estilos em componentes.
+- Vitest foi escolhido para testes por sua integração nativa com Vite e por prover ambiente similar ao Jest com melhor velocidade; é uma escolha válida conforme a especificação "framework de sua preferência".
+
+Como rodar localmente
+
+1. Instale dependências
 
 ```bash
 npm install
 ```
 
-2. Rode em modo desenvolvimento:
+2. Rode em modo desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-Abra `http://localhost:5173` (ou porta indicada pelo Vite).
+3. Execute testes
 
-Observações:
+```bash
+npm test
+```
 
-- A implementação usa Vite para facilidade de desenvolvimento.
-- Gráficos e testes não foram adicionados — foco em requisitos Pleno: React, Styled Components, fetch, ordenação, busca e paginação.
-  > ![Logo Kinvo](https://github.com/cbfranca/kinvo-front-end-test/blob/master/logo.svg)
+Arquivos importantes
 
-# Desafio Front-end Web
+- `src/App.jsx` — componente principal com busca, ordenação e paginação.
+- `src/index.css` — estilos globais.
+- `src/__tests__/App.test.jsx` — testes unitários.
+- `.github/workflows/ci.yml` — fluxo CI para executar testes em push/PR.
 
-Seja bem-vindo! Este desafio foi projetado para avaliar a capacidade técnica de candidatos à vagas de Desenvolvedor Front-end voltadas para o desenvolvimento web, independente da senioridade. O nível de exigência da avaliação se adequa ao nível da vaga.
+Checklist de requisitos
 
-## Instruções:
+- [x] Filtragem por texto (Trainee/Estágio)
+- [x] Consumo da API real (Junior)
+- [x] Ordenação via seletor (Junior)
+- [x] React + Styled Components + Paginação 5 por página (Pleno)
+- [x] Testes automatizados e CI (melhoria além do mínimo)
 
-1. Faça um fork deste repositório;
-2. Implemente o que é proposto no [protótipo](https://github.com/kinvoapp/kinvo-front-end-test/blob/master/material/layout.xd). **! Importante !** A implementação dos gráficos é opcional para candidatos a vagas de nível trainee/estágio, junior e pleno ([
-   Faça o download AdobeXD por aqui](https://helpx.adobe.com/br/xd/get-started.html));
-3. O conjunto mínimo de tecnologias a ser utilizado é HTML, CSS e JS (ES6);
-4. Crie um passo a passo de como rodar sua aplicação ([sugestão](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md));
-5. Após terminar, submeta um pull request e aguarde a avaliação;
+Sugestões de melhorias futuras
 
-### Critérios de avaliação:
+- Adicionar gráficos interativos por produto (Highcharts / Recharts) — boa demonstração para níveis Sênior.
+- Aumentar cobertura de testes e introduzir testes E2E (Cypress) para fluxo completo.
+- Extrair componentes menores (`ProductCard`, `Pagination`, `Controls`) para melhorar testabilidade e reuso.
+- Adicionar TypeScript para segurança de tipos e escalabilidade.
 
-Nossos critérios de avaliação se baseiam e 3 grandes áreas, sendo elas:
+Preparando o pull request
 
-1. Versionamento
-2. Projeto e estrutura
-3. Qualidade de Código
+- Branch enviada: `feat/kinvo-implementation` no seu fork.
+- Sugestão de título: `feat: implement Kinvo Front-end challenge — React + Styled Components`
+- Sugestão de corpo: veja o arquivo `README.md` — seção "Como rodar localmente" e a lista de features entregues.
 
-## Requisitos mínimos:
-
-### ○ Trainee/Estágio
-
-- Permitir a filtragem de produtos na seção **Minhas Rendas Fixas** a partir de buscas realizadas no campo de texto;
-
-### ○ Junior
-
-- Todos os requisitos exigidos para o nível Estágio/Trainee;
-- Exibir dados reais obtidos a partir da API `https://6270328d6a36d4d62c16327c.mockapi.io/getFixedIncomeClassData`;
-- Permitir ordenação de produtos seção **Minhas Rendas Fixas** a partir do menu seletor;
-
-### ○ Pleno
-
-- Todos os requisitos exigidos para o nível Junior;
-- Fazer uso da biblioteca [React](https://pt-br.reactjs.org/);
-- Fazer uso da biblioteca [Styled Components](https://styled-components.com/);
-- Paginar produtos (5 por página) na seção **Minhas Rendas Fixas**;
-
-### ○ Sênior/Analista
-
-- Todos os requisitos exigidos para o nível Pleno;
-- Projetar arquitetura minimamente escalável;
-- Cobertura de testes utilizando o framework de sua preferência. [Jest](https://jestjs.io/) e [Enzyme](https://enzymejs.github.io/enzyme/) são as nossas sugestões;
-- Gráficos funcionais utilizando a biblioteca de sua preferência. [Highcharts](https://www.highcharts.com/) é a nossa sugestão;
-
-## Notas:
-
-- **! Importante !** O cumprimento dos requisitos solicitados para uma vaga em determinado nível não é garantia de aprovação. Focamos em avaliar a forma como os requisitos foram cumpridos.
-- Apesar da listagem de requisitos mínimos acima, caso não tenha tido tempo suficiente ou tenha se esbarrado em alguma dificuldade, entregue o desafio ainda que incompleto e conte-nos na descrição do pull request quais foram as suas maiores dificuldades.
-  Não se preocupe, avaliaremos ainda assim! :)
-- O protótipo é disponibilizado no formato de arquivo Adobe XD e está disponível em [/material](/material) ou a partir [deste link](https://xd.adobe.com/view/efae346e-370a-4a7a-9037-43510c4c8028-bafd/);
-- Caso não tenha familiaridade com o Adobe XD, os ativos do protótipo podem ser exportados utilizando o atalho **CTRL + E** ou **CMD + E**. Caso o seu sistema operacional não seja compatível com o software, você pode acessar o protótipo também através do link citado no item anterior;
-- As bibliotecas e demais recursos sugeridos por nós em todos os níveis de exigência são meras sugestões (com exceção do React). Sinta-se a vontade para fazer a escolha que te deixa mais confortável e inclusive para sugerir ;);
-- Lembre-se de fazer um _fork_ deste repositório! Apenas cloná-lo vai te impedir de criar o _pull request_ e dificultar a entrega;
+Se quiser, eu posso abrir o PR automaticamente se você me fornecer um token GitHub com permissões `repo` (opcional). Caso prefira, crie o PR manualmente apontando de `giselleandrade1/kinvo-frontend.test:feat/kinvo-implementation` para `kinvoapp/kinvo-front-end-test:master` (ou `main`).
 
 ---
 
-Está com alguma dificuldade, encontrou algum problema no desafio ou tem alguma sugestão pra gente? Crie uma [issue](https://github.com/kinvoapp/kinvo-front-end-test/issues) e descreva o que achar necessário.
+Boa sorte na avaliação — se quiser, eu posso agora:
 
-**Sucesso!**
+- Adicionar gráficos funcionais por produto;
+- Refatorar a UI para combinar 100% com os ativos em `/material`;
+- Melhorar a arquitetura separando em componentes e adicionando TypeScript.
+
