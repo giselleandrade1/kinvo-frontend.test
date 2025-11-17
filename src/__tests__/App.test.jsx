@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, waitFor, fireEvent } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent, cleanup } from '@testing-library/react'
 import { vi, beforeEach, afterEach, test, expect } from 'vitest'
 import App from '../App'
 
@@ -36,6 +36,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.restoreAllMocks()
+  cleanup()
 })
 
 test('renders loading and then items from API', async () => {
