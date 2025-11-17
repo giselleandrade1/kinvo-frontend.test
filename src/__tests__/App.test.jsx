@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen, waitFor, fireEvent } from '@testing-library/react'
-import { vi } from 'vitest'
+import { vi, beforeEach, afterEach } from 'vitest'
 import App from '../App'
 
 const mockData = [
