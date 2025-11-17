@@ -1,4 +1,39 @@
-> ![Logo Kinvo](https://github.com/cbfranca/kinvo-front-end-test/blob/master/logo.svg)
+# Kinvo — Desafio Front-end (implementação)
+
+Este repositório contém uma implementação simples do desafio Kinvo usando React + Vite e `styled-components`.
+
+Funcionalidades implementadas:
+
+- Busca / filtragem de produtos na seção "Minhas Rendas Fixas" (campo de texto)
+- Ordenação por nome, data de vencimento e rentabilidade
+- Paginação (5 produtos por página)
+- Consumo de dados reais da API fornecida
+
+Pré-requisitos:
+
+- Node.js 18+ (ou 16+)
+
+Como rodar:
+
+1. Instale dependências:
+
+```bash
+npm install
+```
+
+2. Rode em modo desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Abra `http://localhost:5173` (ou porta indicada pelo Vite).
+
+Observações:
+
+- A implementação usa Vite para facilidade de desenvolvimento.
+- Gráficos e testes não foram adicionados — foco em requisitos Pleno: React, Styled Components, fetch, ordenação, busca e paginação.
+  > ![Logo Kinvo](https://github.com/cbfranca/kinvo-front-end-test/blob/master/logo.svg)
 
 # Desafio Front-end Web
 
@@ -8,7 +43,7 @@ Seja bem-vindo! Este desafio foi projetado para avaliar a capacidade técnica de
 
 1. Faça um fork deste repositório;
 2. Implemente o que é proposto no [protótipo](https://github.com/kinvoapp/kinvo-front-end-test/blob/master/material/layout.xd). **! Importante !** A implementação dos gráficos é opcional para candidatos a vagas de nível trainee/estágio, junior e pleno ([
-Faça o download AdobeXD por aqui](https://helpx.adobe.com/br/xd/get-started.html));
+   Faça o download AdobeXD por aqui](https://helpx.adobe.com/br/xd/get-started.html));
 3. O conjunto mínimo de tecnologias a ser utilizado é HTML, CSS e JS (ES6);
 4. Crie um passo a passo de como rodar sua aplicação ([sugestão](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md));
 5. Após terminar, submeta um pull request e aguarde a avaliação;
@@ -16,6 +51,7 @@ Faça o download AdobeXD por aqui](https://helpx.adobe.com/br/xd/get-started.htm
 ### Critérios de avaliação:
 
 Nossos critérios de avaliação se baseiam e 3 grandes áreas, sendo elas:
+
 1. Versionamento
 2. Projeto e estrutura
 3. Qualidade de Código
