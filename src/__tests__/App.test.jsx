@@ -31,7 +31,7 @@ const mockData = [
 ]
 
 beforeEach(() => {
-  vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ json: () => Promise.resolve(mockData) })))
+  vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(mockData) })))
 })
 
 afterEach(() => {
@@ -63,7 +63,7 @@ test('filters items by search query', async () => {
 test('paginates results (page buttons exist)', async () => {
   // create larger dataset to force pagination
   const big = Array.from({ length: 12 }, (_, i) => ({ id: String(i+1), name: `Item ${i+1}`, institution: 'X', type: 'Y', yield: '1.0', maturityDate: '2025-01-01' }))
-  vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ json: () => Promise.resolve(big) })))
+  vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve(big) })))
 
   render(<App />)
   await waitFor(() => expect(screen.queryByText(/Carregando dados/i)).not.toBeInTheDocument())
