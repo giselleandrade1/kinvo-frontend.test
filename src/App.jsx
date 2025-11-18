@@ -35,6 +35,11 @@ Observacoes
 
 import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
+import AppHeader from './components/Header'
+import Controls from './components/Controls'
+import ProductCard from './components/ProductCard'
+import Pagination from './components/Pagination'
+import { fetchFixedIncomeData } from './services/api'
 
 const Container = styled.div`
   font-family: Inter, system-ui, Arial, sans-serif;
@@ -43,98 +48,11 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-`
-
-const Title = styled.h1`
-  font-size: 24px;
-  margin: 0;
-`
-
-const Controls = styled.div`
-  display: flex;
-  gap: 12px;
-  align-items: center;
-`
-
-const Input = styled.input`
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  min-width: 240px;
-`
-
-const Select = styled.select`
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-`
-
-const Card = styled.div`
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  padding: 16px;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const Meta = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-const Name = styled.div`
-  font-weight: 600;
-`
-
 const Small = styled.div`
-  font-size: 13px;
-  color: #666;
+  font-size:13px;color:#666;
 `
 
-const PaginationWrapper = styled.div`
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 20px;
-`
-
-const PageButton = styled.button`
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  background: ${props => props.active ? '#222' : '#fff'};
-  color: ${props => props.active ? '#fff' : '#222'};
-  cursor: pointer;
-`
-
-function Pagination({ total, pageSize, currentPage, onChange }) {
-  const pages = Math.ceil(total / pageSize)
-  const arr = Array.from({ length: pages }, (_, i) => i + 1)
-  if (pages === 0) return null
-  return (
-    <PaginationWrapper>
-      {arr.map(p => (
-        <PageButton
-          key={p}
-          active={p === currentPage}
-          onClick={() => onChange(p)}
-        >
-          {p}
-        </PageButton>
-      ))}
-    </PaginationWrapper>
-  )
-}
-
-export default function App() {
+export default function App(){
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
@@ -142,9 +60,6 @@ export default function App() {
   const [page, setPage] = useState(1)
   const pageSize = 5
 
-  useEffect(() => {
-    let mounted = true
-    async function fetchData() {
   useEffect(() => {
     let mounted = true
     async function load(){
@@ -162,17 +77,18 @@ export default function App() {
     load()
     return ()=>{ mounted = false }
   }, [])
-  }, [query, sort])
 
-  const filtered = useMemo(() => {
+  useEffect(()=>{ setPage(1) }, [query, sort])
+
+  const filtered = useMemo(()=>{
     const q = query.trim().toLowerCase()
-    let list = data
-    if (q) {
+    let list = data.slice()
+    if (q){
       list = list.filter(item => {
         return (
-          (item.name || '').toLowerCase().includes(q) ||
-          (item.type || '').toLowerCase().includes(q) ||
-          (item.institution || '').toLowerCase().includes(q)
+          (item.name||'').toLowerCase().includes(q) ||
+          (item.type||'').toLowerCase().includes(q) ||
+          (item.institution||'').toLowerCase().includes(q)
         )
       })
     }
@@ -187,55 +103,27 @@ export default function App() {
   }, [data, query, sort])
 
   const total = filtered.length
-  const paged = useMemo(() => {
-    const start = (page - 1) * pageSize
-    return filtered.slice(start, start + pageSize)
+  const paged = useMemo(()=>{
+    const start = (page-1)*pageSize
+    return filtered.slice(start, start+pageSize)
   }, [filtered, page])
 
   return (
     <Container>
-      <Header>
-        <Title>Kinvo desafio frontend</Title>
-        <Controls>
-          <Input
-            placeholder="Pesquisar produtos"
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-          />
-          <Select value={sort} onChange={e => setSort(e.target.value)}>
-            <option value="name_asc">Nome crescente</option>
-            <option value="name_desc">Nome decrescente</option>
-            <option value="yield_desc">Maior rentabilidade</option>
-            <option value="yield_asc">Menor rentabilidade</option>
-          </Select>
-        </Controls>
-      </Header>
+      <AppHeader />
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+        <Controls query={query} onQueryChange={setQuery} sort={sort} onSortChange={setSort} />
+      </div>
 
       <main>
         <h2>Minhas Rendas Fixas</h2>
         {loading && <Small>Carregando dados...</Small>}
         {!loading && total === 0 && <Small>Nenhum produto encontrado</Small>}
         {!loading && paged.map(item => (
-          <Card key={item.id}>
-            <Meta>
-              <Name>{item.name}</Name>
-              <Small>{item.institution} • {item.type}</Small>
-            </Meta>
-            <div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontWeight: 700 }}>{item.yield || '—'}%</div>
-                <Small>Vencimento {item.maturityDate || '—'}</Small>
-              </div>
-            </div>
-          </Card>
+          <ProductCard key={item.id} item={item} />
         ))}
 
-        <Pagination
-          total={total}
-          pageSize={pageSize}
-          currentPage={page}
-          onChange={p => setPage(p)}
-        />
+        <Pagination total={total} pageSize={pageSize} currentPage={page} onChange={p=>setPage(p)} />
       </main>
 
       <footer style={{ marginTop: 30 }}>
