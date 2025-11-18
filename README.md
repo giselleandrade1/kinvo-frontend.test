@@ -76,17 +76,17 @@ Sugestões de melhorias futuras
 Commit messages (sugestão)
 
 - Use Conventional Commits para ajudar o avaliador a entender a história do projeto. Exemplos:
-	- `feat: add pagination component`
-	- `fix: handle empty API response`
-	- `test: add unit tests for search`
+  - `feat: add pagination component`
+  - `fix: handle empty API response`
+  - `test: add unit tests for search`
 
 PR template
 
 Ao abrir o PR, inclua:
+
 - Título claro (feat/fix/chore)
 - Descrição com o que foi implementado
 - Como rodar e verificar as mudanças
-
 
 Preparando o pull request
 
