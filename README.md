@@ -88,4 +88,3 @@ Boa sorte na avaliação — se quiser, eu posso agora:
 - Adicionar gráficos funcionais por produto;
 - Refatorar a UI para combinar 100% com os ativos em `/material`;
 - Melhorar a arquitetura separando em componentes e adicionando TypeScript.
-
