@@ -6,11 +6,14 @@ const ControlsRoot = styled.div`
 `
 
 const Input = styled.input`
-  padding:8px 12px;border-radius:8px;border:1px solid #ddd;min-width:240px;
+  padding:10px 14px;border-radius:10px;border:1px solid #e6e9ef;min-width:260px;background:#fff;box-shadow:0 1px 0 rgba(16,24,40,0.02);
 `
 
 const Select = styled.select`
-  padding:8px 12px;border-radius:8px;border:1px solid #ddd;
+  padding:10px 14px;border-radius:10px;border:1px solid #e6e9ef;background:#fff;
+`
+const Icon = styled.span`
+  display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:transparent;color:var(--muted);
 `
 export default function Controls({ query, onQueryChange, sort, onSortChange }){
   return (

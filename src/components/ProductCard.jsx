@@ -3,19 +3,17 @@ import styled from 'styled-components'
 import Sparkline from './Sparkline'
 
 const Card = styled.div`
-  background:#fff;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.04);padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;
+  background:#fff;border-radius:10px;box-shadow:0 6px 14px rgba(16,24,40,0.06);padding:14px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;
 `
 
 const Meta = styled.div`
-  display:flex;flex-direction:column;
+  display:flex;flex-direction:column;gap:6px;
 `
-
 const Name = styled.div`
-  font-weight:600;
+  font-weight:700;font-size:15px;color:var(--text);
 `
-
 const Small = styled.div`
-  font-size:13px;color:#666;
+  font-size:13px;color:var(--muted);
 `
 export default function ProductCard({ item }){
   // Build a small synthetic series for sparkline when real timeseries is not available
@@ -31,11 +29,11 @@ export default function ProductCard({ item }){
         <Name>{item.name}</Name>
         <Small>{item.institution} • {item.type}</Small>
       </Meta>
-      <div style={{display:'flex',alignItems:'center',gap:12}}>
+      <div style={{display:'flex',alignItems:'center',gap:14}}>
         <Sparkline data={series} />
         <div>
           <div style={{textAlign:'right'}}>
-            <div style={{fontWeight:700}}>{item.yield || '—'}%</div>
+            <div style={{fontWeight:800,fontSize:16}}>{item.yield || '—'}%</div>
             <Small>Vencimento {item.maturityDate || '—'}</Small>
           </div>
         </div>

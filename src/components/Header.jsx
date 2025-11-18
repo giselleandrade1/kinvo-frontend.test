@@ -6,13 +6,23 @@ const HeaderRoot = styled.header`
 `
 
 const Title = styled.h1`
-  font-size:24px;margin:0;
+  font-size:20px;margin:0;font-weight:700;color:var(--text);
 `
 
+const Subtitle = styled.div`
+  font-size:13px;color:var(--muted);
+`
+
+const Left = styled.div`
+  display:flex;flex-direction:column;gap:4px;
+`
 export default function Header(){
   return (
     <HeaderRoot>
-      <Title>Kinvo desafio frontend</Title>
+      <Left>
+        <Title>Kinvo — Desafio Frontend</Title>
+        <Subtitle>Lista de produtos de renda fixa</Subtitle>
+      </Left>
       <div />
     </HeaderRoot>
   )
