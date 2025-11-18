@@ -73,6 +73,21 @@ Sugestões de melhorias futuras
 - Extrair componentes menores (`ProductCard`, `Pagination`, `Controls`) para melhorar testabilidade e reuso.
 - Adicionar TypeScript para segurança de tipos e escalabilidade.
 
+Commit messages (sugestão)
+
+- Use Conventional Commits para ajudar o avaliador a entender a história do projeto. Exemplos:
+	- `feat: add pagination component`
+	- `fix: handle empty API response`
+	- `test: add unit tests for search`
+
+PR template
+
+Ao abrir o PR, inclua:
+- Título claro (feat/fix/chore)
+- Descrição com o que foi implementado
+- Como rodar e verificar as mudanças
+
+
 Preparando o pull request
 
 - Branch enviada: `feat/kinvo-implementation` no seu fork.
