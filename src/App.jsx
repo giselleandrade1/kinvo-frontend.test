@@ -145,24 +145,23 @@ export default function App() {
   useEffect(() => {
     let mounted = true
     async function fetchData() {
+  useEffect(() => {
+    let mounted = true
+    async function load(){
       setLoading(true)
-      try {
-        const res = await fetch('https://6270328d6a36d4d62c16327c.mockapi.io/getFixedIncomeClassData')
-        const json = await res.json()
+      try{
+        const json = await fetchFixedIncomeData()
         if (mounted) setData(json)
-      } catch (err) {
+      }catch(err){
         console.error('Erro ao buscar dados', err)
         if (mounted) setData([])
-      } finally {
+      }finally{
         if (mounted) setLoading(false)
       }
     }
-    fetchData()
-    return () => { mounted = false }
+    load()
+    return ()=>{ mounted = false }
   }, [])
-
-  useEffect(() => {
-    setPage(1)
   }, [query, sort])
 
   const filtered = useMemo(() => {
@@ -177,21 +176,12 @@ export default function App() {
         )
       })
     }
-    switch (sort) {
-      case 'name_asc':
-        list = list.sort((a, b) => (a.name || '').localeCompare(b.name || ''))
-        break
-      case 'name_desc':
-        list = list.sort((a, b) => (b.name || '').localeCompare(a.name || ''))
-        break
-      case 'yield_desc':
-        list = list.sort((a, b) => (Number(b.yield) || 0) - (Number(a.yield) || 0))
-        break
-      case 'yield_asc':
-        list = list.sort((a, b) => (Number(a.yield) || 0) - (Number(b.yield) || 0))
-        break
-      default:
-        break
+    switch(sort){
+      case 'name_asc': list.sort((a,b)=> (a.name||'').localeCompare(b.name||'')); break
+      case 'name_desc': list.sort((a,b)=> (b.name||'').localeCompare(a.name||'')); break
+      case 'yield_desc': list.sort((a,b)=> (Number(b.yield)||0) - (Number(a.yield)||0)); break
+      case 'yield_asc': list.sort((a,b)=> (Number(a.yield)||0) - (Number(b.yield)||0)); break
+      default: break
     }
     return list
   }, [data, query, sort])
