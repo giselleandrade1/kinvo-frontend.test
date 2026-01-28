@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface FilterControlsProps {
   searchValue: string;
   onSearchChange: (value: string) => void;
@@ -98,8 +99,10 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
         <Label htmlFor="sort">Ordenar por</Label>
         <Select
           id="sort"
+          title="Ordenar produtos por"
+          aria-label="Ordenar produtos por"
           value={sortValue}
-          onChange={(e) => onSortChange(e.target.value)}
+          onChange={e => onSortChange(e.target.value)}
         >
           <option value="name">Nome (A-Z)</option>
           <option value="name-desc">Nome (Z-A)</option>
