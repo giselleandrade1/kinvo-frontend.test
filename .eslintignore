@@ -1,0 +1,4 @@
+# Disable specific lint rules
+node_modules/
+dist/
+build/

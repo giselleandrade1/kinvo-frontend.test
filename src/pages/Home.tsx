@@ -137,7 +137,7 @@ export const Home: React.FC = () => {
   const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
   const totalProfitability = allProducts.reduce(
-    (sum, product) => sum + product.profitability,
+    (sum: number, product: FixedIncomeProduct) => sum + product.profitability,
     0,
   );
   const averageProfitability =
