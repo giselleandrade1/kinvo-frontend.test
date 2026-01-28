@@ -6,7 +6,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,7 +18,8 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "jsx-a11y"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
@@ -25,6 +27,7 @@
     "jsx-a11y/label-has-for": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "jsx-a11y/no-static-element-interactions": "off",
-    "jsx-a11y/accessible-emoji": "off"
+    "jsx-a11y/accessible-emoji": "off",
+    "jsx-a11y/interactive-supports-focus": "off"
   }
 }
