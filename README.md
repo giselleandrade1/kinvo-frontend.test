@@ -1,63 +1,263 @@
-> ![Logo Kinvo](https://github.com/cbfranca/kinvo-front-end-test/blob/master/logo.svg)
+# Desafio Kinvo Front-End Web
 
-# Desafio Front-end Web
+<div align="center">
 
-Seja bem-vindo! Este desafio foi projetado para avaliar a capacidade técnica de candidatos à vagas de Desenvolvedor Front-end voltadas para o desenvolvimento web, independente da senioridade. O nível de exigência da avaliação se adequa ao nível da vaga.
+![Logo Kinvo](./logo.svg)
 
-## Instruções:
+**Implementação do Desafio Kinvo Front-End Web - Nível Pleno**
 
-1. Faça um fork deste repositório;
-2. Implemente o que é proposto no [protótipo](https://github.com/kinvoapp/kinvo-front-end-test/blob/master/material/layout.xd). **! Importante !** A implementação dos gráficos é opcional para candidatos a vagas de nível trainee/estágio, junior e pleno ([
-Faça o download AdobeXD por aqui](https://helpx.adobe.com/br/xd/get-started.html));
-3. O conjunto mínimo de tecnologias a ser utilizado é HTML, CSS e JS (ES6);
-4. Crie um passo a passo de como rodar sua aplicação ([sugestão](https://github.com/elsewhencode/project-guidelines/blob/master/README.sample.md));
-5. Após terminar, submeta um pull request e aguarde a avaliação;
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://reactjs.org/)
+[![Styled Components](https://img.shields.io/badge/Styled%20Components-6-DB7092?logo=styled-components)](https://styled-components.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)](https://vitejs.dev/)
 
-### Critérios de avaliação:
+</div>
 
-Nossos critérios de avaliação se baseiam e 3 grandes áreas, sendo elas:
-1. Versionamento
-2. Projeto e estrutura
-3. Qualidade de Código
+## 📋 Índice
 
-## Requisitos mínimos:
-
-### ○ Trainee/Estágio
-
-- Permitir a filtragem de produtos na seção **Minhas Rendas Fixas** a partir de buscas realizadas no campo de texto;
-
-### ○ Junior
-
-- Todos os requisitos exigidos para o nível Estágio/Trainee;
-- Exibir dados reais obtidos a partir da API `https://6270328d6a36d4d62c16327c.mockapi.io/getFixedIncomeClassData`;
-- Permitir ordenação de produtos seção **Minhas Rendas Fixas** a partir do menu seletor;
-
-### ○ Pleno
-
-- Todos os requisitos exigidos para o nível Junior;
-- Fazer uso da biblioteca [React](https://pt-br.reactjs.org/);
-- Fazer uso da biblioteca [Styled Components](https://styled-components.com/);
-- Paginar produtos (5 por página) na seção **Minhas Rendas Fixas**;
-
-### ○ Sênior/Analista
-
-- Todos os requisitos exigidos para o nível Pleno;
-- Projetar arquitetura minimamente escalável;
-- Cobertura de testes utilizando o framework de sua preferência. [Jest](https://jestjs.io/) e [Enzyme](https://enzymejs.github.io/enzyme/) são as nossas sugestões;
-- Gráficos funcionais utilizando a biblioteca de sua preferência. [Highcharts](https://www.highcharts.com/) é a nossa sugestão;
-
-## Notas:
-
-- **! Importante !** O cumprimento dos requisitos solicitados para uma vaga em determinado nível não é garantia de aprovação. Focamos em avaliar a forma como os requisitos foram cumpridos.
-- Apesar da listagem de requisitos mínimos acima, caso não tenha tido tempo suficiente ou tenha se esbarrado em alguma dificuldade, entregue o desafio ainda que incompleto e conte-nos na descrição do pull request quais foram as suas maiores dificuldades.
-  Não se preocupe, avaliaremos ainda assim! :)
-- O protótipo é disponibilizado no formato de arquivo Adobe XD e está disponível em [/material](/material) ou a partir [deste link](https://xd.adobe.com/view/efae346e-370a-4a7a-9037-43510c4c8028-bafd/);
-- Caso não tenha familiaridade com o Adobe XD, os ativos do protótipo podem ser exportados utilizando o atalho **CTRL + E** ou **CMD + E**. Caso o seu sistema operacional não seja compatível com o software, você pode acessar o protótipo também através do link citado no item anterior;
-- As bibliotecas e demais recursos sugeridos por nós em todos os níveis de exigência são meras sugestões (com exceção do React). Sinta-se a vontade para fazer a escolha que te deixa mais confortável e inclusive para sugerir ;);
-- Lembre-se de fazer um _fork_ deste repositório! Apenas cloná-lo vai te impedir de criar o _pull request_ e dificultar a entrega;
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Funcionalidades Implementadas](#funcionalidades-implementadas)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Requisitos](#requisitos)
+- [Instalação e Setup](#instalação-e-setup)
+- [Como Rodar a Aplicação](#como-rodar-a-aplicação)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [API Utilizada](#api-utilizada)
 
 ---
 
-Está com alguma dificuldade, encontrou algum problema no desafio ou tem alguma sugestão pra gente? Crie uma [issue](https://github.com/kinvoapp/kinvo-front-end-test/issues) e descreva o que achar necessário.
+## 🎯 Sobre o Projeto
 
-**Sucesso!**
+Este projeto implementa o desafio proposto pela Kinvo para avaliar habilidades de desenvolvimento front-end. A solução foi construída em **React com Styled Components**, consumindo dados reais de uma API mock e oferecendo funcionalidades completas de filtro, ordenação e paginação.
+
+**Nível de Implementação:** Pleno ✅
+
+---
+
+## ✨ Funcionalidades Implementadas
+
+### ✅ Requisitos do Nível Pleno (Todos Implementados)
+
+- [x] **Filtro de Produtos** - Buscar produtos por nome ou classe de ativo em tempo real
+- [x] **Ordenação** - 5 opções de ordenação (Nome A-Z, Z-A, Data de Vencimento, Rentabilidade)
+- [x] **Consumo de API Real** - Integração com a API Mock da Kinvo
+- [x] **Paginação** - 5 produtos por página com controles intuitivos
+- [x] **React** - Componentes funcionais com hooks
+- [x] **Styled Components** - Estilização modular e escalável
+- [x] **Design Responsivo** - Funciona em desktop, tablet e mobile
+
+### 🎁 Bônus Implementados
+
+- ✅ Estatísticas dinâmicas (Total de produtos, rentabilidade)
+- ✅ Feedback visual durante carregamento
+- ✅ Tratamento de erros robusto
+- ✅ Código TypeScript com tipagem forte
+- ✅ Código limpo e bem documentado
+- ✅ Acessibilidade (labels, ARIA attributes)
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### Principais
+
+- **React 19** - Biblioteca JavaScript para UI
+- **TypeScript 5** - Tipagem estática e segurança de tipos
+- **Styled Components 6** - CSS-in-JS para estilização de componentes
+- **Axios** - Cliente HTTP para requisições à API
+- **Vite 7** - Bundler e dev server ultra-rápido
+
+### Desenvolvimento
+
+- **Node.js 18+**
+- **npm** - Gerenciador de pacotes
+
+---
+
+## 📦 Requisitos
+
+- **Node.js 18.0.0+** - [Baixar](https://nodejs.org/)
+- **npm 9.0.0+** (geralmente vem com Node.js)
+
+Verifique as versões instaladas:
+
+```bash
+node --version
+npm --version
+```
+
+---
+
+## 🚀 Instalação e Setup
+
+### 1️⃣ Clonar o Repositório
+
+```bash
+# Clone seu fork do repositório
+git clone https://github.com/SEU_USUARIO/kinvo-front-end-test.git
+cd kinvo-front-end-test
+```
+
+### 2️⃣ Instalar Dependências
+
+```bash
+npm install
+```
+
+Este comando instalará todas as dependências listadas no `package.json`:
+
+- `react` e `react-dom` - Biblioteca React
+- `styled-components` - CSS-in-JS
+- `axios` - Cliente HTTP
+- `vite` e `@vitejs/plugin-react` - Build tools
+- `typescript` e tipos - TypeScript
+- Demais dependências auxiliares
+
+### 3️⃣ Configurar Variáveis de Ambiente (Opcional)
+
+Se necessário, crie um arquivo `.env` na raiz do projeto:
+
+```env
+VITE_API_URL=https://6270328d6a36d4d62c16327c.mockapi.io/getFixedIncomeClassData
+```
+
+Nota: A aplicação utiliza a URL da API diretamente no código.
+
+---
+
+## 📱 Como Rodar a Aplicação
+
+### Desenvolvimento (com Hot Reload)
+
+```bash
+npm run dev
+```
+
+A aplicação abrirá automaticamente em `http://localhost:3000`
+
+**Recursos do modo desenvolvimento:**
+
+- Hot Module Replacement (HMR) - Recarregamento automático
+- Source maps - Debugging facilitado
+- Compilação rápida
+
+### Build para Produção
+
+```bash
+npm run build
+```
+
+Cria uma versão otimizada em `dist/`
+
+### Preview do Build
+
+```bash
+npm run preview
+```
+
+Visualiza a versão produção localmente
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+kinvo-front-end-test/
+├── public/                    # Arquivos estáticos
+│   ├── index.html            # HTML principal
+│   └── logo.svg              # Logo Kinvo
+│
+├── src/                       # Código fonte
+│   ├── components/           # Componentes React reutilizáveis
+│   │   ├── Header.tsx        # Cabeçalho da página
+│   │   ├── FilterControls.tsx# Filtro e ordenação
+│   │   ├── FixedIncomeTable.tsx# Tabela de produtos
+│   │   └── Pagination.tsx    # Controles de paginação
+│   │
+│   ├── pages/               # Páginas/layouts
+│   │   └── Home.tsx         # Página principal (orquestrador)
+│   │
+│   ├── services/            # Camada de serviços
+│   │   └── api.ts           # Integração com API
+│   │
+│   ├── styles/              # Estilos globais
+│   │   └── global.ts        # Estilos globais com Styled Components
+│   │
+│   ├── types/               # Definições TypeScript
+│   │   └── index.ts         # Interfaces e tipos
+│   │
+│   ├── App.tsx              # Componente raiz
+│   └── main.tsx             # Ponto de entrada React
+│
+├── material/                 # Arquivos de design
+│   └── layout.xd            # Protótipo Adobe XD
+│
+├── vite.config.ts           # Configuração do Vite
+├── tsconfig.json            # Configuração TypeScript
+├── tsconfig.node.json       # Config TS para Vite
+├── package.json             # Dependências e scripts
+└── README.md                # Este arquivo
+```
+
+---
+
+## 🔌 API Utilizada
+
+**URL da API:**
+
+```
+https://6270328d6a36d4d62c16327c.mockapi.io/getFixedIncomeClassData
+```
+
+**Estrutura de Resposta:**
+
+```json
+[
+  {
+    "id": "1",
+    "name": "Tesouro Prefixado 2025",
+    "description": "Tesouro Direto",
+    "due_date": "2025-01-15T00:00:00.000Z",
+    "asset_name": "Tesouro",
+    "profitability": 11.25,
+    "asset_icon": null,
+    "class_name": "Tesouro Direto"
+  }
+]
+```
+
+---
+
+## ✅ Checklist de Implementação
+
+- [x] Setup inicial com Vite + React + TypeScript
+- [x] Instalação de dependências (Styled Components, Axios)
+- [x] Criação de estrutura de pastas escalável
+- [x] Componentes React funcionais
+- [x] Integração API com Axios
+- [x] Filtro de produtos em tempo real
+- [x] Ordenação com múltiplas opções
+- [x] Paginação (5 itens por página)
+- [x] Estilização com Styled Components
+- [x] Design responsivo
+- [x] Tratamento de erros
+- [x] Estatísticas dinâmicas
+- [x] README documentado
+- [x] Git com commits claros
+
+---
+
+## 📞 Suporte
+
+Encontrou um problema? Crie uma [Issue](https://github.com/kinvoapp/kinvo-front-end-test/issues) descrevendo:
+
+- O que esperava que acontecesse
+- O que realmente aconteceu
+- Passos para reproduzir
+- Seu ambiente (navegador, SO, versão Node)
+
+---
+
+**Última atualização:** Janeiro 2026
+
+**Status:** ✅ Pronto para Produção
