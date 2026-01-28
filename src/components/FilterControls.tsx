@@ -86,7 +86,10 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
   onSortChange,
 }) => {
   return (
-    <ControlsContainer role="group" aria-label="Controles de filtro e ordenação">
+    <ControlsContainer
+      role="group"
+      aria-label="Controles de filtro e ordenação"
+    >
       <InputWrapper>
         <Label htmlFor="search-input">Buscar</Label>
         <Input

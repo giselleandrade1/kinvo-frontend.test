@@ -13,7 +13,7 @@ export const fetchFixedIncomeData = async (): Promise<FixedIncomeProduct[]> => {
   try {
     const response = await apiClient.get("/");
     const rawData = response.data?.data?.snapshotByProduct || [];
-    
+
     // Transformar dados da API para o formato esperado
     return rawData.map((item: any, index: number) => ({
       id: item.fixedIncome?.portfolioProductId || index,
