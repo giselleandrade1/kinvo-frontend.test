@@ -8,17 +8,23 @@ interface FilterControlsProps {
   onSortChange: (value: string) => void;
 }
 
-const ControlsContainer = styled.div`
+const ControlsContainer = styled.fieldset`
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
+  border: none;
+  padding: 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: stretch;
   }
+`;
+
+const Legend = styled.legend`
+  display: none;
 `;
 
 const InputWrapper = styled.div`
@@ -83,14 +89,17 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
 }) => {
   return (
     <ControlsContainer>
+      <Legend>Filtros de Busca e Ordenação</Legend>
       <InputWrapper>
         <Label htmlFor="search">Buscar</Label>
         <Input
           id="search"
           type="text"
+          name="search"
           placeholder="Buscar por nome do ativo..."
           value={searchValue}
           onChange={(e) => onSearchChange(e.target.value)}
+          aria-label="Buscar produtos por nome ou classe"
         />
       </InputWrapper>
 
@@ -99,10 +108,9 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
         <Select
           id="sort"
           name="sort"
-          title="Selecione a forma de ordenação"
-          aria-label="Ordenar produtos por"
           value={sortValue}
           onChange={(e) => onSortChange(e.target.value)}
+          aria-label="Ordenar produtos por"
         >
           <option value="name">Nome (A-Z)</option>
           <option value="name-desc">Nome (Z-A)</option>
