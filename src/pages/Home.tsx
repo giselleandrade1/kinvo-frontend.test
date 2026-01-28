@@ -149,31 +149,35 @@ export const Home: React.FC = () => {
       <ContentWrapper>
         {error && <ErrorBanner>{error}</ErrorBanner>}
 
-        <StatsContainer>
-          <StatCard>
-            <h3>Total de Produtos</h3>
-            <p>{allProducts.length}</p>
-          </StatCard>
-          <StatCard>
-            <h3>Rentabilidade Total</h3>
-            <p>{totalProfitability.toFixed(2)}%</p>
-          </StatCard>
-          <StatCard>
-            <h3>Rentabilidade Média</h3>
-            <p>{averageProfitability.toFixed(2)}%</p>
-          </StatCard>
-          <StatCard>
-            <h3>Produtos Encontrados</h3>
-            <p>{filteredProducts.length}</p>
-          </StatCard>
-        </StatsContainer>
+        {!loading && (
+          <>
+            <StatsContainer>
+              <StatCard>
+                <h3>Total de Produtos</h3>
+                <p>{allProducts.length}</p>
+              </StatCard>
+              <StatCard>
+                <h3>Rentabilidade Total</h3>
+                <p>{totalProfitability.toFixed(2)}%</p>
+              </StatCard>
+              <StatCard>
+                <h3>Rentabilidade Média</h3>
+                <p>{averageProfitability.toFixed(2)}%</p>
+              </StatCard>
+              <StatCard>
+                <h3>Produtos Encontrados</h3>
+                <p>{filteredProducts.length}</p>
+              </StatCard>
+            </StatsContainer>
 
-        <FilterControls
-          searchValue={searchValue}
-          onSearchChange={setSearchValue}
-          sortValue={sortValue}
-          onSortChange={setSortValue}
-        />
+            <FilterControls
+              searchValue={searchValue}
+              onSearchChange={setSearchValue}
+              sortValue={sortValue}
+              onSortChange={setSortValue}
+            />
+          </>
+        )}
 
         <FixedIncomeTable
           products={paginatedProducts}

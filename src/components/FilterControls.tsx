@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/select-has-accessible-name */
 import React from "react";
 import styled from "styled-components";
 
@@ -104,7 +105,10 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
       </InputWrapper>
 
       <SelectWrapper>
-        <Label htmlFor="sort" id="sort-label">Ordenar por</Label>
+        <Label htmlFor="sort" id="sort-label">
+          Ordenar por
+        </Label>
+        {/* eslint-disable-next-line jsx-a11y/select-has-accessible-name */}
         <Select
           id="sort"
           name="sort"
