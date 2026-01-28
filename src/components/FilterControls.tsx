@@ -95,16 +95,12 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
       </InputWrapper>
 
       <SelectWrapper>
-        <Label id="sort-label" htmlFor="sort">
-          Ordenar por
-        </Label>
-        {/* eslint-disable-next-line jsx-a11y/no-onchange,jsx-a11y/control-has-associated-label */}
+        <Label htmlFor="sort">Ordenar por</Label>
         <Select
           id="sort"
           name="sort"
           title="Selecione a forma de ordenação"
           aria-label="Ordenar produtos por"
-          aria-labelledby="sort-label"
           value={sortValue}
           onChange={(e) => onSortChange(e.target.value)}
         >
