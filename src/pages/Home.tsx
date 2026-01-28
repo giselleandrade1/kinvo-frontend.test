@@ -178,7 +178,7 @@ export const Home: React.FC = () => {
         <FixedIncomeTable
           products={paginatedProducts}
           loading={loading}
-          error={error ? undefined : undefined}
+          error={error || undefined}
         />
 
         {!loading && totalPages > 1 && (
