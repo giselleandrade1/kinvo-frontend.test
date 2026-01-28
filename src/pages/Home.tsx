@@ -95,10 +95,7 @@ export const Home: React.FC = () => {
       result = result.filter(
         (product) =>
           product.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-          (product.asset_name &&
-            product.asset_name
-              .toLowerCase()
-              .includes(searchValue.toLowerCase())),
+          product.bondType.toLowerCase().includes(searchValue.toLowerCase()),
       );
     }
 

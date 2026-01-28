@@ -99,7 +99,7 @@ export const FixedIncomeTable: React.FC<FixedIncomeTableProps> = ({
         <thead>
           <tr>
             <th>Nome do Ativo</th>
-            <th>Classe</th>
+            <th>Tipo de Título</th>
             <th>Data de Vencimento</th>
             <th>Rentabilidade</th>
           </tr>
@@ -108,8 +108,8 @@ export const FixedIncomeTable: React.FC<FixedIncomeTableProps> = ({
           {products.map((product) => (
             <tr key={product.id}>
               <td>{product.name}</td>
-              <td>{product.class_name || product.asset_name || "-"}</td>
-              <td>{new Date(product.due_date).toLocaleDateString("pt-BR")}</td>
+              <td>{product.bondType}</td>
+              <td>{product.due_date}</td>
               <td>
                 <ProfitabilityBadge positive={product.profitability >= 0}>
                   {product.profitability >= 0 ? "+" : ""}

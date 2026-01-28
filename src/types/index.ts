@@ -1,12 +1,9 @@
 export interface FixedIncomeProduct {
-  id: string;
+  id: number;
   name: string;
-  description?: string;
+  bondType: string;
   due_date: string;
-  asset_name: string;
   profitability: number;
-  asset_icon?: string;
-  class_name?: string;
 }
 
 export interface SortOption {

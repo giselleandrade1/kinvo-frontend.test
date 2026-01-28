@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/select-has-accessible-name */
 import React from "react";
 import styled from "styled-components";
 
@@ -9,23 +8,17 @@ interface FilterControlsProps {
   onSortChange: (value: string) => void;
 }
 
-const ControlsContainer = styled.fieldset`
+const ControlsContainer = styled.div`
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
   flex-wrap: wrap;
   align-items: flex-end;
-  border: none;
-  padding: 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: stretch;
   }
-`;
-
-const Legend = styled.legend`
-  display: none;
 `;
 
 const InputWrapper = styled.div`
@@ -80,6 +73,10 @@ const Select = styled.select`
     border-color: #1976d2;
     box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
   }
+
+  option {
+    padding: 8px;
+  }
 `;
 
 export const FilterControls: React.FC<FilterControlsProps> = ({
@@ -89,34 +86,28 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
   onSortChange,
 }) => {
   return (
-    <ControlsContainer>
-      <Legend>Filtros de Busca e Ordenação</Legend>
+    <ControlsContainer role="group" aria-label="Controles de filtro e ordenação">
       <InputWrapper>
-        <Label htmlFor="search">Buscar</Label>
+        <Label htmlFor="search-input">Buscar</Label>
         <Input
-          id="search"
           type="text"
+          id="search-input"
           name="search"
-          placeholder="Buscar por nome do ativo..."
+          placeholder="Busque por nome ou tipo..."
           value={searchValue}
           onChange={(e) => onSearchChange(e.target.value)}
-          aria-label="Buscar produtos por nome ou classe"
+          aria-label="Campo de busca para filtrar produtos por nome ou tipo"
         />
       </InputWrapper>
 
       <SelectWrapper>
-        <Label htmlFor="sort" id="sort-label">
-          Ordenar por
-        </Label>
-        {/* eslint-disable-next-line jsx-a11y/select-has-accessible-name */}
+        <Label htmlFor="sort-select">Ordenar por</Label>
         <Select
-          id="sort"
+          id="sort-select"
           name="sort"
-          title="Selecione a forma de ordenação dos produtos"
           value={sortValue}
           onChange={(e) => onSortChange(e.target.value)}
-          aria-labelledby="sort-label"
-          aria-label="Ordenar produtos por"
+          aria-label="Selecione a forma de ordenação dos produtos"
         >
           <option value="name">Nome (A-Z)</option>
           <option value="name-desc">Nome (Z-A)</option>

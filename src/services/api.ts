@@ -12,7 +12,16 @@ const apiClient = axios.create({
 export const fetchFixedIncomeData = async (): Promise<FixedIncomeProduct[]> => {
   try {
     const response = await apiClient.get("/");
-    return response.data || [];
+    const rawData = response.data?.data?.snapshotByProduct || [];
+    
+    // Transformar dados da API para o formato esperado
+    return rawData.map((item: any, index: number) => ({
+      id: item.fixedIncome?.portfolioProductId || index,
+      name: item.fixedIncome?.name || "Produto sem nome",
+      bondType: item.fixedIncome?.bondType || "N/A",
+      due_date: item.due?.date || "N/A",
+      profitability: item.position?.profitability || 0,
+    }));
   } catch (error) {
     console.error("Error fetching fixed income data:", error);
     throw error;
