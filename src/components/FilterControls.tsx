@@ -108,6 +108,7 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
         <Select
           id="sort"
           name="sort"
+          title="Selecione a forma de ordenação dos produtos"
           value={sortValue}
           onChange={(e) => onSortChange(e.target.value)}
           aria-label="Ordenar produtos por"
