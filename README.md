@@ -4,7 +4,7 @@
 
 ![Logo Kinvo](./logo.svg)
 
-**Implementação do Desafio Kinvo Front-End Web - Nível Pleno**
+**Implementação do Desafio Kinvo Front-End Web**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://reactjs.org/)
 [![Styled Components](https://img.shields.io/badge/Styled%20Components-6-DB7092?logo=styled-components)](https://styled-components.com/)
