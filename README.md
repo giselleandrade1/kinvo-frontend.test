@@ -30,13 +30,11 @@
 
 Este projeto implementa o desafio proposto pela Kinvo para avaliar habilidades de desenvolvimento front-end. A solução foi construída em **React com Styled Components**, consumindo dados reais de uma API mock e oferecendo funcionalidades completas de filtro, ordenação e paginação.
 
-**Nível de Implementação:** Pleno ✅
+***Obs: Esse projeto foi desenvolvido a partir de um desafio técnico para fins de estudo e portfólio.***
 
 ---
 
 ## ✨ Funcionalidades Implementadas
-
-### ✅ Requisitos do Nível Pleno (Todos Implementados)
 
 - [x] **Filtro de Produtos** - Buscar produtos por nome ou classe de ativo em tempo real
 - [x] **Ordenação** - 5 opções de ordenação (Nome A-Z, Z-A, Data de Vencimento, Rentabilidade)
